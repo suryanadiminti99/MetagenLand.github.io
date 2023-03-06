@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display buildings in 3D</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+<script src="https://unpkg.com/three@0.126.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+
+
+<!-- The Modal -->
+
+
+<div id="map"></div>
+
+
+
+
+<script>
+
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+
+
+
+
+	
+				mapboxgl.accessToken = 'pk.eyJ1Ijoic3VyeWFyZ3YxIiwiYSI6ImNsMzl6cGRneTAwanczZHAxanl0a2JhZHAifQ.s4qfU9wgTfqfBwn1piXF5w';
+				const map = new mapboxgl.Map({
+				style: 'mapbox://styles/mapbox/streets-v9',
+				center: [-74.0038616090175, 40.71220869210711],
+				zoom: 17,
+				pitch: 45,
+				bearing: -17.6,
+				container: 'map',
+				antialias: true
+				});
+				
+				
+				
+				
+				
+				// parameters to ensure the model is georeferenced correctly on the map
+					const modelOrigin = [-74.0038616090175, 40.71220869210711];
+					const modelAltitude = 0;
+					const modelRotate = [Math.PI / 2, 0, 0];
+					 
+					const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+					modelOrigin,
+					modelAltitude
+					);
+					 
+					// transformation parameters to position, rotate and scale the 3D model onto the map
+					const modelTransform = {
+						translateX: modelAsMercatorCoordinate.x,
+						translateY: modelAsMercatorCoordinate.y,
+						translateZ: modelAsMercatorCoordinate.z,
+						rotateX: modelRotate[0],
+						rotateY: modelRotate[1],
+						rotateZ: modelRotate[2],
+						/* Since the 3D model is in real world meters, a scale transform needs to be
+						* applied since the CustomLayerInterface expects units in MercatorCoordinates.
+						*/
+						scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits()
+					};
+					 
+					const THREE = window.THREE;
+					 
+					// configuration of the custom layer for a 3D model per the CustomLayerInterface
+					const customLayer = {
+						id: '3d-model',
+						type: 'custom',
+						renderingMode: '3d',
+						onAdd: function (map, gl) {
+						this.camera = new THREE.Camera();
+						this.scene = new THREE.Scene();
+						 
+						// create two three.js lights to illuminate the model
+						const directionalLight = new THREE.DirectionalLight(0xffffff);
+						directionalLight.position.set(0, -70, 100).normalize();
+						this.scene.add(directionalLight);
+						 
+						const directionalLight2 = new THREE.DirectionalLight(0xffffff);
+						directionalLight2.position.set(0, 70, 100).normalize();
+						this.scene.add(directionalLight2);
+						 
+						// use the three.js GLTF loader to add the 3D model to the three.js scene
+						const loader = new THREE.GLTFLoader();
+						loader.load(
+						'https://raw.githubusercontent.com/suryanadiminti99/GlbModels/master/box.glb',
+						(gltf) => {
+						this.scene.add(gltf.scene);
+						}
+						);
+						this.map = map;
+						 
+						// use the Mapbox GL JS map canvas for three.js
+						this.renderer = new THREE.WebGLRenderer({
+						canvas: map.getCanvas(),
+						context: gl,
+						antialias: true
+						});
+						 
+						this.renderer.autoClear = false;
+						},
+						render: function (gl, matrix) {
+						const rotationX = new THREE.Matrix4().makeRotationAxis(
+						new THREE.Vector3(1, 0, 0),
+						modelTransform.rotateX
+						);
+						const rotationY = new THREE.Matrix4().makeRotationAxis(
+						new THREE.Vector3(0, 1, 0),
+						modelTransform.rotateY
+						);
+						const rotationZ = new THREE.Matrix4().makeRotationAxis(
+						new THREE.Vector3(0, 0, 1),
+						modelTransform.rotateZ
+						);
+						 
+						const m = new THREE.Matrix4().fromArray(matrix);
+						const l = new THREE.Matrix4()
+						.makeTranslation(
+						modelTransform.translateX,
+						modelTransform.translateY,
+						modelTransform.translateZ
+						)
+						.scale(
+						new THREE.Vector3(
+						modelTransform.scale/0.2,
+						modelTransform.scale/0.2,
+						modelTransform.scale/0.2
+						)
+						)
+						.multiply(rotationX)
+						.multiply(rotationY)
+						.multiply(rotationZ);
+						 
+						this.camera.projectionMatrix = m.multiply(l);
+						this.renderer.resetState();
+						this.renderer.render(this.scene, this.camera);
+						this.map.triggerRepaint();
+						}
+					};
+				
+
+
+
+
+				map.on('load', () => {
+				// Insert the layer beneath any symbol layer.
+				const layers = map.getStyle().layers;
+				const labelLayerId = layers.find(
+				(layer) => layer.type === 'symbol' && layer.layout['text-field']
+				).id;
+	
+	
+			// Set marker options.
+				/*const marker = new mapboxgl.Marker({
+				color: "#FFFFFF",
+				draggable: true
+				}).setLngLat([-74.1038616090175, 40.71220869210711])
+				.addTo(map);*/
+		
+		
+			// Load map data from Open Street Map
+				map.addSource('states', {
+					'type': 'geojson',
+					'data': "https://raw.githubusercontent.com/suryanadiminti99/GlbModels/master/new_york.json"
+				});
+				
+				map.addLayer(customLayer, 'waterway-label');
+				
+				// Add a new layer to visualize the polygon.
+				map.addLayer({
+					'id': 'states-layer',
+					'type': 'fill',
+					'source': 'states', // reference the data source
+					'filter': ['==', '$type', 'Polygon'],
+					'layout': {visibility: 'visible'},
+					'paint': {
+					'fill-color': [
+						'case',
+						['boolean', ['feature-state', 'clicked'], false], // Set this to false
+						'#43A047',
+						'#43A047'               ],
+					'fill-opacity': 1
+				},
+				});
+				
+
+
+			
+	
+				// The 'building' layer in the Mapbox Streets
+				// vector tileset contains building height data
+				// from OpenStreetMap.
+				map.addLayer(
+						{
+							'id': 'add-3d-buildings',
+							'source': 'composite',
+							 'layout': {visibility: 'invisible'},
+							'source-layer': 'building',
+							'filter': ['==', '$type', 'Polygon'],
+							'type': 'fill-extrusion',
+							'minzoom': 15,
+							'paint': {
+								'fill-extrusion-color': '#FFEFD5',
+								 
+								// Use an 'interpolate' expression to
+								// add a smooth transition effect to
+								// the buildings as the user zooms in.
+								'fill-extrusion-height': [
+									'interpolate',
+									['linear'],
+									['zoom'],
+									15,
+									0,
+									15.05,
+									['get', 'height']
+								],
+								'fill-extrusion-base': [
+									'interpolate',
+									['linear'],
+									['zoom'],
+									15,
+									0,
+									15.05,
+									['get', 'min_height']
+								],
+								'fill-extrusion-opacity': 1
+							}
+						},
+					labelLayerId
+				);
+				
+				
+			
+			
+				map.on('mouseover', 'poi-label', () => {
+				console.log('A mouseover event has occurred on a visible portion of the poi-label layer.');
+				});
+				
+				
+				map.on('click', 'states-layer', (e) => {
+				
+				
+				//modal.style.display = "block";
+				
+						console.log(e);
+						let latitude = e.lngLat.lat;
+						let longitude = e.lngLat.lng;
+						console.log('Latitude: ' + latitude + '\n Longitude: ' + longitude);
+						const popup = new mapboxgl.Popup({ closeOnClick: true })
+						.setLngLat([longitude,latitude])
+						.setHTML(`<b>${e.features[0].properties.name}</b>`)
+						.addTo(map);
+						
+				});
+				
+				
+				span.onclick = function() {
+				  modal.style.display = "none";
+				}
+				
+				window.onclick = function(event) {
+				  if (event.target == modal) {
+					modal.style.display = "none";
+				  }
+				}
+				
+				/*var polygonID = null;
+				map.on('click', 'states-layer', (e) => {
+				  map.getCanvas().style.cursor = 'polygon';
+				  if (e.features.length > 0) {
+					if (polygonID) {
+					  map.removeFeatureState({
+						source: "states",
+						id: polygonID
+					  });
+					}
+
+					polygonID = e.features[0].id_area;
+
+					map.setFeatureState({
+					  source: 'states',
+					  id: polygonID,
+					}, {
+					  clicked: true
+					});
+				  }
+				});*/
+			
+			
+	});
+	
+	
+	
+	
+	
+			
+	
+	
+	
+	
+	
+	
+</script>
+ 
+</body>
+</html>
