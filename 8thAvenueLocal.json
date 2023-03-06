@@ -1,0 +1,150 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "relation/366776",
+      "properties": {
+        "timestamp": "2021-09-14T04:09:46Z",
+        "version": "94",
+        "changeset": "111172416",
+        "user": "clay_c",
+        "uid": "119881",
+        "alt_name": "8th Avenue Local",
+        "colour": "#0039a6",
+        "from": "World Trade Center",
+        "interval": "7",
+        "interval:conditional": "4 @ (Mo-Fr 06:30-09:30); 4 @ (Mo-Fr 15:30-20:00)",
+        "interval:note": "Approximate minutes from Wikipedia article",
+        "interval:source": "https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_services#Train%20intervals",
+        "name": "NYCS - E Train: World Trade Center → Jamaica Center–Parsons/Archer",
+        "network": "NYC Subway",
+        "network:wikidata": "Q7733",
+        "network:wikipedia": "en:New York City Subway",
+        "opening_hours": "Mo-Fr 06:30-20:00",
+        "operator": "Metropolitan Transportation Authority",
+        "operator:wikidata": "Q1146109",
+        "operator:wikipedia": "en:Metropolitan Transportation Authority",
+        "owner": "City of New York",
+        "owner:wikidata": "Q60",
+        "public_transport:version": "2",
+        "ref": "E",
+        "route": "subway",
+        "to": "Jamaica Center–Parsons/Archer",
+        "type": "route",
+        "wikidata": "Q126368",
+        "wikipedia": "en:E (New York City Subway service)",
+        "id": "relation/366776"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0087049,
+            40.7138231
+          ],
+          [
+            -74.0082955,
+            40.7143821
+          ],
+          [
+            -74.0078874,
+            40.7149042
+          ],
+          [
+            -74.0075471,
+            40.7153396
+          ],
+          [
+            -74.0072464,
+            40.715714
+          ],
+          [
+            -74.0067007,
+            40.7164065
+          ],
+          [
+            -74.0060911,
+            40.7171801
+          ],
+          [
+            -74.0059168,
+            40.7174013
+          ],
+          [
+            -74.0054267,
+            40.7180232
+          ],
+          [
+            -74.0052959,
+            40.7181982
+          ],
+          [
+            -74.0052359,
+            40.7182948
+          ],
+          [
+            -74.0051592,
+            40.7184454
+          ],
+          [
+            -74.005121,
+            40.7185533
+          ],
+          [
+            -74.0050831,
+            40.7187131
+          ],
+          [
+            -74.0050623,
+            40.7188171
+          ],
+          [
+            -74.0050417,
+            40.71892
+          ],
+          [
+            -74.0050282,
+            40.7190721
+          ],
+          [
+            -74.005045,
+            40.7194691
+          ],
+          [
+            -74.0050386,
+            40.7196286
+          ],
+          [
+            -74.0050407,
+            40.7197294
+          ],
+          [
+            -74.0050468,
+            40.719839
+          ],
+          [
+            -74.0050586,
+            40.7200535
+          ],
+          [
+            -74.005064,
+            40.7201512
+          ],
+          [
+            -74.005136,
+            40.7214505
+          ],
+          [
+            -74.0051438,
+            40.7215907
+          ],
+          [
+            -74.0051561,
+            40.7218134
+          ]
+        ]
+      }
+    }
+  ]
+}
