@@ -145,6 +145,580 @@
                ]
             ]
          }
+      },
+      {
+      "type": "Feature",
+      "id": "relation/366778",
+      "properties": {
+        "timestamp": "2021-09-14T04:56:02Z",
+        "version": "126",
+        "changeset": "111173792",
+        "user": "clay_c",
+        "uid": "119881",
+        "alt_name": "Lexington Avenue Express",
+        "colour": "#00933c",
+        "from": "Nereid Avenue",
+        "interval": "5",
+        "interval:note": "Approximate minutes from Wikipedia article",
+        "interval:source": "https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_services#Train%20intervals",
+        "name": "NYCS - 5 Train (am rush): Nereid Avenue → Flatbush Avenue–Brooklyn College",
+        "network": "NYC Subway",
+        "network:wikidata": "Q7733",
+        "network:wikipedia": "en:New York City Subway",
+        "opening_hours": "Mo-Fr 06:00-09:30",
+        "opening_hours:note": "See http://web.mta.info/nyct/service/fiveline.htm",
+        "operator": "Metropolitan Transportation Authority",
+        "operator:wikidata": "Q1146109",
+        "operator:wikipedia": "en:Metropolitan Transportation Authority",
+        "owner": "City of New York",
+        "owner:wikidata": "Q60",
+        "public_transport:version": "2",
+        "ref": "5",
+        "route": "subway",
+        "to": "Flatbush Avenue–Brooklyn College",
+        "type": "route",
+        "wikidata": "Q126177",
+        "wikipedia": "en:5 (New York City Subway service)",
+        "id": "relation/366778"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              -74.0029113,
+              40.7158208
+            ],
+            [
+              -74.0029898,
+              40.7157014
+            ],
+            [
+              -74.003045,
+              40.7155761
+            ],
+            [
+              -74.0030754,
+              40.7154463
+            ],
+            [
+              -74.0031598,
+              40.714894
+            ],
+            [
+              -74.0032163,
+              40.7146851
+            ],
+            [
+              -74.00356,
+              40.7138445
+            ],
+            [
+              -74.0036187,
+              40.7137149
+            ],
+            [
+              -74.0036806,
+              40.7136126
+            ],
+            [
+              -74.0037624,
+              40.7135075
+            ],
+            [
+              -74.0038023,
+              40.7134607
+            ],
+            [
+              -74.0040604,
+              40.713158
+            ],
+            [
+              -74.0042303,
+              40.712975
+            ],
+            [
+              -74.0043858,
+              40.7128282
+            ],
+            [
+              -74.0045297,
+              40.7127123
+            ],
+            [
+              -74.0046995,
+              40.7125843
+            ],
+            [
+              -74.0048675,
+              40.7124651
+            ],
+            [
+              -74.0050009,
+              40.7123722
+            ]
+          ],
+          [
+            [
+              -74.0050389,
+              40.712406
+            ],
+            [
+              -74.0050111,
+              40.7123812
+            ],
+            [
+              -74.004878,
+              40.7124738
+            ],
+            [
+              -74.0047107,
+              40.7125925
+            ],
+            [
+              -74.0045417,
+              40.71272
+            ],
+            [
+              -74.0043983,
+              40.7128353
+            ],
+            [
+              -74.0042427,
+              40.7129821
+            ],
+            [
+              -74.0040733,
+              40.7131646
+            ],
+            [
+              -74.0038156,
+              40.713467
+            ],
+            [
+              -74.0038448,
+              40.7134809
+            ],
+            [
+              -74.0041068,
+              40.7131817
+            ],
+            [
+              -74.0042778,
+              40.7130022
+            ],
+            [
+              -74.0044325,
+              40.7128558
+            ],
+            [
+              -74.0045748,
+              40.7127411
+            ],
+            [
+              -74.0047421,
+              40.7126153
+            ],
+            [
+              -74.0049072,
+              40.7124981
+            ],
+            [
+              -74.0050389,
+              40.712406
+            ]
+          ]
+        ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": "relation/366784",
+      "properties": {
+        "timestamp": "2021-09-14T04:56:02Z",
+        "version": "100",
+        "changeset": "111173792",
+        "user": "clay_c",
+        "uid": "119881",
+        "alt_name": "7th Avenue Express",
+        "colour": "#ee352e",
+        "from": "New Lots Avenue",
+        "interval": "7",
+        "interval:conditional": "6 @ (Mo-Fr 06:30-09:30); 10 @ (Sa-Su 06:30-23:59); 12 @ (Mo-Fr 20:00-00:00)",
+        "interval:note": "Approximate minutes from Wikipedia article",
+        "interval:source": "https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_services#Train%20intervals",
+        "name": "NYCS - 3 Train: New Lots Avenue → Harlem–148th Street",
+        "network": "NYC Subway",
+        "network:wikidata": "Q7733",
+        "network:wikipedia": "en:New York City Subway",
+        "opening_hours": "Mo-Su 06:30-23:59",
+        "opening_hours:note": "See http://web.mta.info/nyct/service/oneline.htm",
+        "operator": "Metropolitan Transportation Authority",
+        "operator:wikidata": "Q1146109",
+        "operator:wikipedia": "en:Metropolitan Transportation Authority",
+        "owner": "City of New York",
+        "owner:wikidata": "Q60",
+        "public_transport:version": "2",
+        "ref": "3",
+        "route": "subway",
+        "to": "Harlem–148th Street",
+        "type": "route",
+        "wikidata": "Q126151",
+        "wikipedia": "en:3 (New York City Subway service)",
+        "id": "relation/366784"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0059508,
+            40.7107554
+          ],
+          [
+            -74.0061858,
+            40.7109797
+          ],
+          [
+            -74.0070617,
+            40.711804
+          ],
+          [
+            -74.0074471,
+            40.71228
+          ],
+          [
+            -74.00768,
+            40.7124833
+          ],
+          [
+            -74.0079529,
+            40.7126453
+          ],
+          [
+            -74.0081531,
+            40.7127469
+          ],
+          [
+            -74.0098707,
+            40.7135486
+          ],
+          [
+            -74.0100022,
+            40.7136382
+          ],
+          [
+            -74.010119,
+            40.713745
+          ],
+          [
+            -74.0101917,
+            40.7138614
+          ],
+          [
+            -74.0102253,
+            40.713967
+          ],
+          [
+            -74.0102352,
+            40.7140435
+          ],
+          [
+            -74.0102337,
+            40.7141244
+          ],
+          [
+            -74.0102203,
+            40.7141886
+          ],
+          [
+            -74.0101958,
+            40.7142556
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "relation/366785",
+      "properties": {
+        "timestamp": "2021-09-14T04:56:02Z",
+        "version": "102",
+        "changeset": "111173792",
+        "user": "clay_c",
+        "uid": "119881",
+        "alt_name": "Lexington Avenue Express",
+        "colour": "#00933c",
+        "from": "Crown Heights–Utica Avenue",
+        "interval": "4",
+        "interval:conditional": "3 @ (Mo-Fr 06:30-09:30); 8 @ (Sa-Su 06:30-23:59); 8 @ (Mo-Fr 20:00-00:00)",
+        "interval:note": "Approximate minutes from Wikipedia article",
+        "interval:source": "https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_services#Train%20intervals",
+        "name": "NYCS - 4 Train: Crown Heights–Utica Avenue → Woodlawn",
+        "network": "NYC Subway",
+        "network:wikidata": "Q7733",
+        "network:wikipedia": "en:New York City Subway",
+        "opening_hours": "Mo-Fr 06:30-16:00,19:00-23:59; Sa-Su 06:30-23:59",
+        "opening_hours:note": "See http://web.mta.info/nyct/service/oneline.htm",
+        "operator": "Metropolitan Transportation Authority",
+        "operator:wikidata": "Q1146109",
+        "operator:wikipedia": "en:Metropolitan Transportation Authority",
+        "owner": "City of New York",
+        "owner:wikidata": "Q60",
+        "public_transport:version": "2",
+        "ref": "4",
+        "route": "subway",
+        "to": "Woodlawn",
+        "type": "route",
+        "wikidata": "Q126163",
+        "wikipedia": "en:4 (New York City Subway service)",
+        "id": "relation/366785"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              -74.0049743,
+              40.7123446
+            ],
+            [
+              -74.0048387,
+              40.7124387
+            ],
+            [
+              -74.004667,
+              40.7125604
+            ],
+            [
+              -74.0044941,
+              40.7126912
+            ],
+            [
+              -74.0043495,
+              40.7128078
+            ],
+            [
+              -74.004194,
+              40.7129547
+            ],
+            [
+              -74.0040237,
+              40.713138
+            ],
+            [
+              -74.0037637,
+              40.7134428
+            ],
+            [
+              -74.0037243,
+              40.713489
+            ],
+            [
+              -74.0036405,
+              40.7135968
+            ],
+            [
+              -74.0035767,
+              40.7137022
+            ],
+            [
+              -74.0035169,
+              40.7138342
+            ],
+            [
+              -74.0031724,
+              40.7146769
+            ],
+            [
+              -74.0031152,
+              40.7148886
+            ],
+            [
+              -74.0030307,
+              40.7154413
+            ],
+            [
+              -74.0030011,
+              40.7155676
+            ],
+            [
+              -74.002948,
+              40.7156883
+            ],
+            [
+              -74.002872,
+              40.7158039
+            ]
+          ],
+          [
+            [
+              -74.0049648,
+              40.7123351
+            ],
+            [
+              -74.0049343,
+              40.7123113
+            ],
+            [
+              -74.0047996,
+              40.7124022
+            ],
+            [
+              -74.004625,
+              40.7125259
+            ],
+            [
+              -74.0044456,
+              40.7126613
+            ],
+            [
+              -74.0043011,
+              40.7127794
+            ],
+            [
+              -74.0041458,
+              40.7129276
+            ],
+            [
+              -74.0039761,
+              40.7131134
+            ],
+            [
+              -74.0037206,
+              40.7134231
+            ],
+            [
+              -74.0037503,
+              40.7134367
+            ],
+            [
+              -74.0040108,
+              40.7131314
+            ],
+            [
+              -74.0041814,
+              40.7129476
+            ],
+            [
+              -74.0043371,
+              40.7128006
+            ],
+            [
+              -74.004482,
+              40.7126837
+            ],
+            [
+              -74.0046564,
+              40.7125517
+            ],
+            [
+              -74.0048289,
+              40.7124295
+            ],
+            [
+              -74.0049648,
+              40.7123351
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "relation/2624106",
+      "properties": {
+        "timestamp": "2022-03-24T18:26:07Z",
+        "version": "69",
+        "changeset": "118876728",
+        "user": "TheBestIdea",
+        "uid": "298513",
+        "from": "Battery Park City",
+        "name": "NYCB - M22 Battery Park City --> Lower East Side",
+        "network": "NYC Transit",
+        "network:wikidata": "Q1325591",
+        "network:wikipedia": "en:New York City Transit Authority",
+        "operator": "Metropolitan Transportation Authority",
+        "operator:short": "MTA",
+        "public_transport:version": "2",
+        "ref": "M22",
+        "route": "bus",
+        "to": "Lower East Side",
+        "type": "route",
+        "id": "relation/2624106"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0079521,
+            40.7149352
+          ],
+          [
+            -74.0078289,
+            40.7148782
+          ],
+          [
+            -74.0064152,
+            40.7142247
+          ],
+          [
+            -74.0063041,
+            40.7141733
+          ],
+          [
+            -74.0062038,
+            40.7141268
+          ],
+          [
+            -74.0058972,
+            40.7139851
+          ],
+          [
+            -74.0057551,
+            40.7139194
+          ],
+          [
+            -74.0048235,
+            40.7134886
+          ],
+          [
+            -74.0041892,
+            40.7131912
+          ],
+          [
+            -74.0041097,
+            40.713153
+          ],
+          [
+            -74.0041877,
+            40.7130724
+          ],
+          [
+            -74.0044672,
+            40.7127902
+          ],
+          [
+            -74.0045316,
+            40.7127252
+          ],
+          [
+            -74.0046394,
+            40.712627
+          ],
+          [
+            -74.0047092,
+            40.7125693
+          ],
+          [
+            -74.0047587,
+            40.7125357
+          ],
+          [
+            -74.004813,
+            40.712497
+          ]
+        ]
+      }
+    }
    ]
 }
