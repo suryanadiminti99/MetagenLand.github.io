@@ -1,0 +1,56 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/292769248",
+      "properties": {
+        "timestamp": "2017-08-06T08:11:40Z",
+        "version": "2",
+        "changeset": "50877198",
+        "user": "Srihari Thalla",
+        "uid": "2815653",
+        "addr:street": "Inorbit Mall Road",
+        "building": "commercial",
+        "name": "Divyasree Solitaire",
+        "website": "http://www.divyasree.com/Commercial/Completed/SOLITAIRE.html",
+        "id": "way/292769248"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.3815752,
+              17.4369075
+            ],
+            [
+              78.3813801,
+              17.4366879
+            ],
+            [
+              78.3818268,
+              17.4363267
+            ],
+            [
+              78.3821078,
+              17.436643
+            ],
+            [
+              78.3818484,
+              17.4368527
+            ],
+            [
+              78.3817626,
+              17.436756
+            ],
+            [
+              78.3815752,
+              17.4369075
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
